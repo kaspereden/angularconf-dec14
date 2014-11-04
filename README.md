@@ -1,2 +1,2 @@
-angularconf-dec14
+Presentation for anguconf 14
 =================
