@@ -32,10 +32,28 @@
 
 <body>
 
+	<div class="scripts">
+		<script charset="utf-8" src="slides/angular-conf/js/angular.js"></script>
+		<script charset="utf-8" src="slides/angular-conf/js/mustache.js"></script>
+
+		<script charset="utf-8">
+		var app1 = angular.module('exampleapp', []);
+		app1.controller('appCtrl', function ($scope) {
+			$scope.value = 'superhero';
+		});
+		app1.controller('listCtrl', function ($scope) {
+			$scope.carpark = {
+				volkwagen: ['golf', 'polo', 'up'],
+				toyota: ['aygo', 'yaris', 'auris', 'prius'],
+				opel: ['astra']
+			};
+		});
+		</script>
+	</div>
 	<div class="reveal">
 
 		<!-- Any section element inside of this container is displayed as a slide -->
-		<div class="slides">
+		<div class="slides" ng-app="exampleapp" >
 
 			<section>
 				<h2>the road to angularjs</h2>
@@ -180,12 +198,12 @@
 				<section data-markdown data-background="#3F3F3F">
 					<script type="text/template">
 						```html
-						&lt;p&gt;&lt;a class="mine" href="#"&gt;&lt;/a&gt; text&lt;/p&gt;
-						&lt;p class="mine"&gt;&lt;/p&gt;
+						<p><a class="mine" href="#"></a> text</p>
+						<p class="mine"></p>
 
-						&lt;div class="container"&gt;
-						&lt;input class="mine mineInput"/&gt;
-						&lt;/div&gt;
+						<div class="container">
+							<input class="mine mineInput"/>
+						</div>
 						```
 					</script>
 				</section>
@@ -234,9 +252,11 @@
 					<script charset="utf-8" src="slides/angular-conf/js/1-plain.js"></script>
 				</section>
 				<section data-markdown data-background="#3F3F3F">
-					```html
-					&lt;div class="mine-container"&gt;&lt;/div&gt;
-					```
+					<script type="text/template">
+						```html
+						<div class="mine-container"></div>
+						```
+					</script>
 				</section>
 				<section data-markdown data-background="#3F3F3F">
 					```javascript
@@ -257,7 +277,6 @@
 					<h2>mustache example</h2>
 					<div class="mine-container"></div>
 
-					<script charset="utf-8" src="slides/angular-conf/js/mustache.js"></script>
 					<script charset="utf-8" src="slides/angular-conf/js/2-mustache.js"></script>
 				</section>
 				<section>
@@ -276,34 +295,94 @@
 					```javascript
 					inputs[i].onchange = function() {};
 					```
+
+Note:
+jquery not solve this
+				</section>
+				<section data-background="slides/angular-conf/images/MCV-circle.svg">
+					<aside class="notes">
+						recap missing 2-way data binding
+					</aside>
+				</section>
+				<section data-transition="fade">
+					<h2>angular / ember</h2>
+				</section>
+				<section data-transition="fade">
+					<h2>angular</h2>
+				</section>
+				<section data-background="slides/angular-conf/images/MVVM.svg">
+					<aside class="notes">
+						why it's cool<br>
+						remember plain JS?<br>
+						cool things like
+					</aside>
+				</section>
+				<section>
+					<code>$scope.value = "my first value";</code>
+					<aside class="notes">
+
+					</aside>
+				</section>
+				<section data-markdown data-background="#3F3F3F">
+					<script type="text/template">
+						```html
+						<p><a href="#">{{value}}</a> text</p>
+						<p>{{value}}</p>
+
+						<div>
+							<input ng-model="value"/>
+						</div>
+						```
+					</script>
+				</section>
+				<section>
+					<div ng-controller="appCtrl">
+						<p><a href="#">{{value}}</a> text</p>
+						<p>{{value}}</p>
+
+						<div>
+							<input ng-model="value"/>
+						</div>
+					</div>
+				</section>
+				<section>
+					<div  ng-controller="listCtrl" >
+						<ul>
+							<li ng-repeat="(brand, cars) in carpark">
+								<b>{{brand}}</b>
+								<ul>
+									<li ng-repeat="car in cars">{{car}}</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+				</section>
+				<section data-markdown data-background="#3F3F3F">
+					<script type="text/template">
+						```html
+							<li ng-repeat="(brand, cars) in carpark">
+								<b>{{brand}}</b>
+								<ul>
+									<li ng-repeat="car in cars">{{car}}</li>
+								</ul>
+							</li>
+						```
+
+						```javascript
+							$scope.carpark = {
+								volkwagen: ['golf', 'polo', 'up'],
+								toyota: ['aygo', 'yaris', 'auris', 'prius'],
+								opel: ['astra']
+							};
+						```
+					</script>
+				</section>
+				<section>
+					modules
 				</section>
 			</section>
 			<section>
-
-
-				This is a lot of code and it is not really workable when you’re creating more complex data structures. SHOW COMPLEX STRUCTURE { volkwagen: ['golf', 'polo', 'up'], toyota: ['aygo', 'yaris', 'auris', 'prius'], opel: ['astra', 'corsa', 'vectra'] }
-				The last problem can be solved by using a template engine like Mustache. EXAMPLE 2
-				EXAMPLE 2 CODE
-
-				Well all of this is really interesting but the problem is this: CODE EXAMPLE OF THE USERHANDLING
-
-				And jQuery is not going to solve this whilst other frameworks like Ember and AngularJS do.
-
-				Quick recap MVC is a circle. MVC IMAGE
-
-				This works, the design pattern is already being used for years.
-				We’re missing 2-way data binding. EXPLAIN WITH IMAGE
-
-				MVC with two way databinding is called MVVM Model View ViewModel, I prefer to refer to it as MVC with 2-way databinding
-
-				But what is 2 way databinding and why is it so cool?
-				Lets go back to the previous example EXAMPLE 1 here we had to write all kind of things in order to make the model update the view and vice versa. This traditional MVC is using 1 way databinding. Data goes from the model -> view -> controller -> model 2 way binding goes either way.
-				view <-> model
-				This means that we can do some cool stuff like
-				‘$scope.value = “my first value”;
-				and in the view we create {{value}} whenever either one of these changes they all change. Without you writing stuff.
-				SAMPLE ANGULAR FORM
-
+				OPZET Project
 
 				## weird overstapje naar opzetten van een project…
 				iets over jquery?
@@ -320,37 +399,9 @@
 				http://www.dotnet-tricks.com/Tutorial/designpatterns/2FMM060314-Understanding-MVC,-MVP-and-MVVM-Design-Patterns.html
 
 
-				Problem
-				Why single page application? (or just a web application)
-				Do we really need client-side routing?
-				RESTful and stateful applications
-				Patterns
-				MVVM
-				Two-way Data-Binding
-				Difference between MVVM and MVC
-				Code & Live sample
-				MVC
-				How does it work?
-				Code & Live sample
-				Why Angular?
-				Best for single page application
-				Google
-				Statistics (search, usage, modules)
-				What is AngularJS?
-				Framework Javascript
-				A brief history
-				Docs link
-				Minified version
-				Features (mention features not yet go into)
-				Tools
-				Bower
-				Gulp/Grunt
-				Yeoman
-				Setting up a project
-
 			</section>
 			<section>
-				<h4>Credits</h4>
+				<h4>credits</h4>
 				<small>
 					<ul>
 						<li>Cat in box: <a href="http://www.urlesque.com/2010/11/19/maru-vs-increasingly-small-boxes/">http://www.urlesque.com/2010/11/19/maru-vs-increasingly-small-boxes/</a></li>
