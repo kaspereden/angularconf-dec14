@@ -17,6 +17,7 @@ body {
   background-position: 98% 100%;
   background-size: 200px;
   background-repeat: no-repeat;
+  text-rendering: optimizeLegibility
 }
 
 .reveal {
@@ -132,3 +133,24 @@ body {
  *********************************************/
 .reveal .slide-number {
   color: #3b759e; }
+
+.reveal table td {
+  vertical-align: middle !important;
+  text-align: center !important;
+}
+
+.reveal a.wof {
+    color: #333;
+    i {
+        color: #F58233;
+        font-style: normal;
+    }
+}
+
+.reveal a.wof:hover i {
+    color: #333;
+}
+
+.reveal .slides {
+    zoom: 1.0 !important;
+}

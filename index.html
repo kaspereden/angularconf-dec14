@@ -1,0 +1,412 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+
+	<title>reveal.js - The HTML Presentation Framework</title>
+
+	<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+	<meta name="author" content="Hakim El Hattab">
+
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<link rel="stylesheet" href="css/reveal.min.css">
+	<link rel="stylesheet" href="css/theme/incentro.css" id="theme">
+
+	<!-- For syntax highlighting -->
+	<link rel="stylesheet" href="lib/css/zenburn.css">
+
+	<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+	<script>
+	document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+	</script>
+
+	<!--[if lt IE 9]>
+	<script src="lib/js/html5shiv.js"></script>
+	<![endif]-->
+</head>
+
+<body>
+
+	<div class="reveal">
+
+		<!-- Any section element inside of this container is displayed as a slide -->
+		<div class="slides">
+
+			<section>
+				<h2>the road to angularjs</h2>
+				<small>Created by <a href="http://kasperreijnders.nl">Kasper Reijnders</a> / <a href="http://twitter.com/kaspereden">@kaspereden</a></small>
+			</section>
+
+			<section>
+				<section>
+					<img src="slides/angular-conf/images/box1.jpg" alt="cat">
+					<aside class="notes">
+						project outgrows boundaries
+					</aside>
+				</section>
+				<section>
+					<img src="slides/angular-conf/images/box2.jpg" alt="cat box">
+					<aside class="notes">
+						not what you expected<br>
+						business adds more
+					</aside>
+				</section>
+				<section>
+					<img src="slides/angular-conf/images/adding.jpg" alt="add">
+					<aside class="notes">
+						resources and more and more
+					</aside>
+				</section>
+				<section data-background="slides/angular-conf/images/pop-density-3.jpg">
+					<aside class="notes">
+						until its so complex
+					</aside>
+				</section>
+				<section>
+					<img src="slides/angular-conf/images/blackbox.jpeg" alt="bb">
+					<aside class="notes">
+						what is actually happening?<br>
+						new colleagues feel?<br>
+						and its getting worse
+					</aside>
+				</section>
+				<section>
+					<table>
+						<tr>
+							<td rowspan="2" style="width: 20px">
+								&nbsp;
+							</td>
+							<td>
+								<img src="slides/angular-conf/images/cell-phones.jpg" alt="bb">
+							</td>
+							<td>
+								<img class="fragment" src="slides/angular-conf/images/watch.jpg" alt="bb">
+							</td>
+							<td rowspan="2" style="width: 20px">
+								&nbsp;
+							</td>
+						</tr>
+						<tr class="fragment" >
+							<td>
+								<img src="slides/angular-conf/images/dk2-product.jpg" alt="bb">
+							</td>
+							<td>
+								<img src="slides/angular-conf/images/423989-google-glass.jpg" alt="bb">
+							</td>
+						</tr>
+					</table>
+					<aside class="notes">
+						business wants to optimize for devices (phones) then watches, or glasses
+					</aside>
+				</section>
+				<section data-background="slides/angular-conf/images/wires.JPG">
+					<aside class="notes">
+						once it was nice, all changes
+					</aside>
+				</section>
+				<section data-background="slides/angular-conf/images/wires_A_Server_Room_Nightmare-s600x383-12112-580.jpg">
+					<aside class="notes">
+						now its a mess<br>
+						-> refactor
+					</aside>
+				</section>
+				<section>
+					<h2>layers</h2>
+					<h2 class="fragment">applications</h2>
+					<aside class="notes">
+						split in layers<br>
+						data,<br>
+						modification (2/3)<br>
+						business logic<br>
+						presentation<br>
+						applications ipv 1 big thing
+					</aside>
+				</section>
+				<section>
+					<h2>layers</h2>
+					<aside class="notes">
+						layers and abstractions<br>
+						 logic separated from presentation<br>
+						store data -> lowest level<br>
+						accessible for anyone<br>
+						lets put it to test
+					</aside>
+				</section>
+				<section data-background="slides/angular-conf/images/architecture.svg">
+					<aside class="notes">
+						split layers, explain model <br>
+						each application has an owner<br>
+						REST is click
+					</aside>
+				</section>
+				<section data-background="slides/angular-conf/images/architecture1.svg">
+					<aside class="notes">
+						start coding!
+					</aside>
+				</section>
+				<section data-background="slides/angular-conf/images/yay.jpg">
+				</section>
+			</section>
+			<section>
+				<section>
+					<h1>design patterns</h1>
+					<aside class="notes">
+						1st explain patterns
+					</aside>
+				</section>
+				<section>
+					<img src="slides/angular-conf/images/noo.gif"/>
+				</section>
+				<section>
+					<h2>mvc</h2>
+					<h3 class="fragment">model view controller</h3>
+					<aside class="notes">
+						need to understand MVC
+					</aside>
+				</section>
+				<section data-background="slides/angular-conf/images/MCV.svg">
+					<img src="slides/angular-conf/images/MVC.png" class="fragment" />
+				</section>
+				<section data-background="slides/angular-conf/images/MCV.svg">
+					<aside class="notes">
+						MVC stands for model view controller. IMAGE The user sees a view, the view is typically some HTML, the HTML gets feeded by some data, the model. When a user changes something on the page the controller is used to update the model and alter the page.
+					</aside>
+				</section>
+				<section data-markdown data-background="#3F3F3F">
+					<script type="text/template">
+						```html
+						&lt;p&gt;&lt;a class="mine" href="#"&gt;&lt;/a&gt; text&lt;/p&gt;
+						&lt;p class="mine"&gt;&lt;/p&gt;
+
+						&lt;div class="container"&gt;
+						&lt;input class="mine mineInput"/&gt;
+						&lt;/div&gt;
+						```
+					</script>
+				</section>
+				<section data-markdown data-background="#3F3F3F">
+					<script type="text/template">
+						```javascript
+						var model = {
+							value: 'nothing'
+						};
+						```
+					</script>
+				</section>
+				<section data-markdown data-background="#3F3F3F">
+					<script type="text/template">
+						```javascript
+						function updateModel() {
+							var containers = example1.getElementsByClassName('mine');
+							for (var i = 0; i< containers.length; i = i+1) {
+								if (containers[i].value !== undefined) {
+									containers[i].value = model.value;
+								} else {
+									containers[i].textContent = model.value;
+								}
+							}
+						}
+
+						inputs[i].onchange = function() {
+							model.value=this.value;
+							updateModel();
+						};
+						```
+					</script>
+				</section>
+				<section id="example1">
+					<h2>plain js example</h2>
+					<p><a class="mine" href="#"></a> text</p>
+					<p class="mine"></p>
+
+					<div class="container">
+						<input class="mine mineInput"/>
+					</div>
+					<aside class="notes">
+						not workable<br>
+						big objects
+					</aside>
+					<script charset="utf-8" src="slides/angular-conf/js/1-plain.js"></script>
+				</section>
+				<section data-markdown data-background="#3F3F3F">
+					```html
+					&lt;div class="mine-container"&gt;&lt;/div&gt;
+					```
+				</section>
+				<section data-markdown data-background="#3F3F3F">
+					```javascript
+					var view = '&lt;p&gt;&lt;a href="#"&gt;{{value}}&lt;/a&gt; text&lt;/p&gt;' +
+					'&lt;p&gt;{{value}}&lt;/p&gt;' +
+					'&lt;div class="container"&gt;' +
+						'&lt;input class="mineInput" value="{{value}}"/&gt;' +
+						'&lt;/div&gt;';
+					```
+				</section>
+				<section data-markdown data-background="#3F3F3F">
+					```javascript
+					example2.getElementsByClassName('mine-container')[0].innerHTML =
+							Mustache.render(view, model);
+					```
+				</section>
+				<section id="example2">
+					<h2>mustache example</h2>
+					<div class="mine-container"></div>
+
+					<script charset="utf-8" src="slides/angular-conf/js/mustache.js"></script>
+					<script charset="utf-8" src="slides/angular-conf/js/2-mustache.js"></script>
+				</section>
+				<section>
+					<ul>
+						<li>Update data via MVC pattern</li>
+						<li class="fragment">Complex data in model</li>
+						<li class="fragment">No userhandling</li>
+					</ul>
+					<aside class="notes">
+						2klik<br>
+						updates, complex data, no handling<br>
+						(define on change events)
+					</aside>
+				</section>
+				<section data-background="#3F3F3F" data-markdown>
+					```javascript
+					inputs[i].onchange = function() {};
+					```
+				</section>
+			</section>
+			<section>
+
+
+				This is a lot of code and it is not really workable when you’re creating more complex data structures. SHOW COMPLEX STRUCTURE { volkwagen: ['golf', 'polo', 'up'], toyota: ['aygo', 'yaris', 'auris', 'prius'], opel: ['astra', 'corsa', 'vectra'] }
+				The last problem can be solved by using a template engine like Mustache. EXAMPLE 2
+				EXAMPLE 2 CODE
+
+				Well all of this is really interesting but the problem is this: CODE EXAMPLE OF THE USERHANDLING
+
+				And jQuery is not going to solve this whilst other frameworks like Ember and AngularJS do.
+
+				Quick recap MVC is a circle. MVC IMAGE
+
+				This works, the design pattern is already being used for years.
+				We’re missing 2-way data binding. EXPLAIN WITH IMAGE
+
+				MVC with two way databinding is called MVVM Model View ViewModel, I prefer to refer to it as MVC with 2-way databinding
+
+				But what is 2 way databinding and why is it so cool?
+				Lets go back to the previous example EXAMPLE 1 here we had to write all kind of things in order to make the model update the view and vice versa. This traditional MVC is using 1 way databinding. Data goes from the model -> view -> controller -> model 2 way binding goes either way.
+				view <-> model
+				This means that we can do some cool stuff like
+				‘$scope.value = “my first value”;
+				and in the view we create {{value}} whenever either one of these changes they all change. Without you writing stuff.
+				SAMPLE ANGULAR FORM
+
+
+				## weird overstapje naar opzetten van een project…
+				iets over jquery?
+				Use ng-boilerplate as a template for your projects.
+				Learn to use unit-testing and end-to-end testing with Angular, and make it your religion. Use testacular/karma and Jasmine. It will save you months and years of development. Use end-to-end tests in addition to unit tests. Borrow test practices from good AngularJS applications.
+				Acquire new Angular habits, and avoid old habits that do not translate into AngularJS world.
+				Know how scopes work
+				Learn to use templates, directives and filters instead of DOM manipulation
+				Know Angular equivalents of common jQuery functions
+				Use AngularUI and related libraries by the same team
+				Read good applications sources (https://github.com/angular-app/angular-app/,http://builtwith.angularjs.org/).
+				http://www.artandlogic.com/blog/2013/05/angularjs-best-practices-ive-been-doing-it-wrong-part-3-of-3/
+				https://developer.chrome.com/apps/app_frameworks
+				http://www.dotnet-tricks.com/Tutorial/designpatterns/2FMM060314-Understanding-MVC,-MVP-and-MVVM-Design-Patterns.html
+
+
+				Problem
+				Why single page application? (or just a web application)
+				Do we really need client-side routing?
+				RESTful and stateful applications
+				Patterns
+				MVVM
+				Two-way Data-Binding
+				Difference between MVVM and MVC
+				Code & Live sample
+				MVC
+				How does it work?
+				Code & Live sample
+				Why Angular?
+				Best for single page application
+				Google
+				Statistics (search, usage, modules)
+				What is AngularJS?
+				Framework Javascript
+				A brief history
+				Docs link
+				Minified version
+				Features (mention features not yet go into)
+				Tools
+				Bower
+				Gulp/Grunt
+				Yeoman
+				Setting up a project
+
+			</section>
+			<section>
+				<h4>Credits</h4>
+				<small>
+					<ul>
+						<li>Cat in box: <a href="http://www.urlesque.com/2010/11/19/maru-vs-increasingly-small-boxes/">http://www.urlesque.com/2010/11/19/maru-vs-increasingly-small-boxes/</a></li>
+						<li>Add people: <a href="http://www.property118.com/how-to-i-add-my-picture-or-a-business-logo-to-comments/40319/">http://www.property118.com/how-to-i-add-my-picture-or-a-business-logo-to-comments/40319/</a></li>
+						<li>Crowd: <a href="http://www.planetizen.com/node/71059">http://www.planetizen.com/node/71059</a></li>
+						<li>Oculus Rift: <a href="https://www.oculus.com/order/">https://www.oculus.com/order/</a></li>
+						<li>Google Glass: <a href="http://www.pcmag.com/article2/0,2817,2416488,00.asp">http://www.pcmag.com/article2/0,2817,2416488,00.asp</a></li>
+						<li>Phones: <a href="http://blogs.mcgill.ca/oss/2013/12/07/is-it-true-that-keeping-a-cell-phone-in-a-bra-can-cause-breast-cancer/">http://blogs.mcgill.ca/oss/2013/12/07/is-it-true-that-keeping-a-cell-phone-in-a-bra-can-cause-breast-cancer/</a></li>
+						<li>Watches: <a href="http://techzulu.com/rock-smartwatch-launches-99-hd-touchscreen-smartwatch/">http://techzulu.com/rock-smartwatch-launches-99-hd-touchscreen-smartwatch/</a></li>
+						<li>Wires: <a href="http://www.guru3d.com/articles-pages/inside-nvidia-hq,7.html">http://www.guru3d.com/articles-pages/inside-nvidia-hq,7.html</a></li>
+						<li>Wires2: <a href="http://helpdesk.csgliudger.nl/home/nieuws/nieuwsberichten/verhuizing-serverruimte.html">http://helpdesk.csgliudger.nl/home/nieuws/nieuwsberichten/verhuizing-serverruimte.html</a></li>
+						<li>Happy: <a href="http://www.huffingtonpost.com/tywan-wade/calling-all-teens-being-y_b_4856395.html">http://www.huffingtonpost.com/tywan-wade/calling-all-teens-being-y_b_4856395.html</a></li>
+						<li>Sad: <a href="http://marianna.booklikes.com/post/673691/currently-reading-stargazing-from-nowhere-by-isabel-thomas-and-marilyn-thomas">http://marianna.booklikes.com/post/673691/currently-reading-stargazing-from-nowhere-by-isabel-thomas-and-marilyn-thomas</a></li>
+					</ul>
+				</small>
+			</section>
+			<section>
+				<h4><a href="http://www.incentro.com" target="_blank" class="wof">#worldof<i>incentro</i></a></h4>
+			</section>
+		</div>
+
+	</div>
+
+	<script src="lib/js/head.min.js"></script>
+	<script src="js/reveal.min.js"></script>
+
+	<script>
+
+	// Full list of configuration options available here:
+	// https://github.com/hakimel/reveal.js#configuration
+	Reveal.initialize({
+		controls: false,
+		progress: true,
+		history: true,
+		center: true,
+		margin: 0,
+
+		theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+		transition: Reveal.getQueryHash().transition || 'linear', // default/cube/page/concave/zoom/linear/fade/none
+
+		// Parallax scrolling
+		// parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+		// parallaxBackgroundSize: '2100px 900px',
+
+		// Optional libraries used to extend on reveal.js
+		dependencies: [
+		{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+		{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+		{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+		{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+		// { src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+		{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+		]
+	});
+
+	</script>
+
+</body>
+</html>
