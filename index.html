@@ -4,10 +4,10 @@
 <head>
 	<meta charset="utf-8">
 
-	<title>reveal.js - The HTML Presentation Framework</title>
+	<title>the road to angular</title>
 
-	<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
-	<meta name="author" content="Hakim El Hattab">
+	<meta name="description" content="Why you should be using angular">
+	<meta name="author" content="Kasper Reijnders">
 
 	<meta name="apple-mobile-web-app-capable" content="yes" />
 	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
@@ -304,10 +304,10 @@ jquery not solve this
 						recap missing 2-way data binding
 					</aside>
 				</section>
-				<section data-transition="fade">
+				<section>
 					<h2>angular / ember</h2>
 				</section>
-				<section data-transition="fade">
+				<section>
 					<h2>angular</h2>
 				</section>
 				<section data-background="slides/angular-conf/images/MVVM.svg">
@@ -377,8 +377,99 @@ jquery not solve this
 						```
 					</script>
 				</section>
+			</section>
+			<section>
 				<section>
-					modules
+					<h1>modules</h1>
+					<aside class="notes">
+						besides this 2-way databinding<br>
+						modularity<br>
+					</aside>
+				</section>
+				<section data-background="slides/angular-conf/images/modular.jpg">
+					<aside class="notes">
+						build separated
+					</aside>
+
+				</section>
+				<section data-markdown data-background="#3F3F3F">
+					<script type="text/template">
+					```javascript
+					angular.module('search', []);
+					```
+					</script>
+					<aside class="notes">
+						define module
+					</aside>
+				</section>
+				<section data-markdown data-background="#3F3F3F">
+					<script type="text/template">
+					```javascript
+					angular.module('autoComplete');
+
+					angular.module('search', ['autoComplete']);
+					```
+					</script>
+					<aside class="notes">
+						add sub module
+					</aside>
+				</section>
+				<section>
+					<img src="slides/angular-conf/images/yeoman.png" alt="" />
+					<aside class="notes">
+						project management, git/grunt/bower
+					</aside>
+				</section>
+				<section>
+					<h1>yo</h1>
+					<h4 class="fragment"><a href="http://www.yeoman.io" target="_blank">yeoman</a></h4>
+					<aside class="notes">
+						click!
+					</aside>
+				</section>
+				<section>
+					<h2>single page</h2>
+					<aside class="notes">
+						so what if single page app?
+					</aside>
+				</section>
+				<section data-markdown data-background="#3F3F3F">
+					<script type="text/template">
+					```javascript
+					var spa = angular.module('SinglePageApplication', [
+						'module_1', 'module_2', 'module_3'
+					]);
+
+					spa.config(['$routeProvider',
+						function ($routeProvider) {
+							$routeProvider.otherwise({
+								templateUrl: 'spa/templates/404.html',
+								controller: '404Ctrl'
+							});
+						}
+					]);
+					```
+					</script>
+				</section>
+				<section data-markdown data-background="#3F3F3F">
+					<script type="text/template">
+					```javascript
+					var searchapp = angular.module('Search', []);
+					searchapp.config(['$routeProvider',
+						function ($routeProvider) {
+							$routeProvider.when('/search', {
+								templateUrl: 'search/templates/search.html',
+								controller: 'SearchCtrl'
+							});
+							$routeProvider.when('/search/:query', {
+								templateUrl: 'search/templates/results.html',
+								controller: 'SearchResultsCtrl',
+								reloadOnSearch: false
+							});
+						}
+					]);
+					```
+					</script>
 				</section>
 			</section>
 			<section>
