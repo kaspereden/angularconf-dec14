@@ -43,7 +43,7 @@
 		});
 		app1.controller('listCtrl', function ($scope) {
 			$scope.carpark = {
-				volkwagen: ['golf', 'polo', 'up'],
+				volkswagen: ['golf', 'polo', 'up'],
 				toyota: ['aygo', 'yaris', 'auris', 'prius'],
 				opel: ['astra']
 			};
@@ -62,9 +62,18 @@
 
 			<section>
 				<section>
+					<h1>project</h1>
+				</section>
+				<section>
 					<img src="slides/angular-conf/images/box1.jpg" alt="cat">
 					<aside class="notes">
 						project outgrows boundaries
+					</aside>
+				</section>
+				<section>
+					<img src="slides/angular-conf/images/adding.jpg" alt="add">
+					<aside class="notes">
+						resources and more and more
 					</aside>
 				</section>
 				<section>
@@ -72,12 +81,6 @@
 					<aside class="notes">
 						not what you expected<br>
 						business adds more
-					</aside>
-				</section>
-				<section>
-					<img src="slides/angular-conf/images/adding.jpg" alt="add">
-					<aside class="notes">
-						resources and more and more
 					</aside>
 				</section>
 				<section data-background="slides/angular-conf/images/pop-density-3.jpg">
@@ -259,13 +262,15 @@
 					</script>
 				</section>
 				<section data-markdown data-background="#3F3F3F">
+					<script type="text/template">
 					```javascript
-					var view = '&lt;p&gt;&lt;a href="#"&gt;{{value}}&lt;/a&gt; text&lt;/p&gt;' +
-					'&lt;p&gt;{{value}}&lt;/p&gt;' +
-					'&lt;div class="container"&gt;' +
-						'&lt;input class="mineInput" value="{{value}}"/&gt;' +
-						'&lt;/div&gt;';
+					var view = '<p><a href="#">{{value}}</a> text</p>' +
+					'<p>{{value}}</p>' +
+					'<div class="container">' +
+						'<input class="mineInput" value="{{value}}"/>' +
+					'</div>';
 					```
+					</script>
 				</section>
 				<section data-markdown data-background="#3F3F3F">
 					```javascript
@@ -370,7 +375,7 @@ jquery not solve this
 
 						```javascript
 							$scope.carpark = {
-								volkwagen: ['golf', 'polo', 'up'],
+								volkswagen: ['golf', 'polo', 'up'],
 								toyota: ['aygo', 'yaris', 'auris', 'prius'],
 								opel: ['astra']
 							};
@@ -399,13 +404,13 @@ jquery not solve this
 					```
 					</script>
 					<aside class="notes">
-						define module
+						define module, mention brackets
 					</aside>
 				</section>
 				<section data-markdown data-background="#3F3F3F">
 					<script type="text/template">
 					```javascript
-					angular.module('autoComplete');
+					angular.module('autoComplete', []);
 
 					angular.module('search', ['autoComplete']);
 					```
@@ -489,18 +494,24 @@ jquery not solve this
 				</section>
 				<section>
 					<ul>
-						<li>split projects into small applications</li>
+						<li>build modular code</li>
+						<li class="fragment">split projects into small applications</li>
 						<li class="fragment">give them an owner</li>
 						<li class="fragment">2-way data binding is awesome</li>
-						<li class="fragment">build modular code</li>
 						<li class="fragment">build tools are king<br></li>
 						<li class="fragment">yo<br><br><br></li>
 					</ul>
 					<small>slides at <a href="http://kaspereden.github.io/angularconf-dec14">http://kaspereden.github.io/angularconf-dec14</a></small>
+					<aside class="notes">
+						6 li<br>
+						build tools explain jshint & autoprefixer
+
+					</aside>
 				</section>
 			</section>
 			<section>
 				<h4><a href="http://www.incentro.com" target="_blank" class="wof">#worldof<i>incentro</i></a></h4>
+				<h4><a href="http://www.twitter.com/kaspereden" target="_blank">@kaspereden</a></h4>
 			</section>
 			<section>
 				<h4>credits</h4>
@@ -522,6 +533,7 @@ jquery not solve this
 			</section>
 			<section>
 				<h4><a href="http://www.incentro.com" target="_blank" class="wof">#worldof<i>incentro</i></a></h4>
+				<h4><a href="http://www.twitter.com/kaspereden" target="_blank">@kaspereden</a></h4>
 			</section>
 		</div>
 
