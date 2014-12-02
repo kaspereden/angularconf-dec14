@@ -152,13 +152,10 @@ input .controls div.navigate-down.enabled {
   text-align: center !important; }
 
 .reveal a.wof, input a.wof {
-  color: #333; }
-  .reveal a.wof i, input a.wof i {
-    color: #F58233;
-    font-style: normal; }
+  color: #939393; }
 
 .reveal a.wof:hover i, input a.wof:hover i {
-  color: #333; }
+  color: #F58233; }
 
 .reveal .slides, input .slides {
   zoom: 1.0 !important; }
